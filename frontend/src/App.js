@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import "./index.css";
+import "./App.css";
 
 const PrivateRoute = ({ children }) => {
 	const { token } = useContext(AuthContext);

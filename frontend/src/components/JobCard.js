@@ -23,14 +23,14 @@ const JobCard = ({ job, onEdit, onDelete }) => {
 							</span>
 						)}
 						{isOverdue && (
-							<span className="overdue-badge">⚠ Follow-up overdue</span>
+							<span className="overdue-badge">Follow-up overdue</span>
 						)}
 					</div>
 					<p className="job-role">{job.role}</p>
 					<div className="d-flex flex-wrap gap-3">
 						{job.appliedDate && (
 							<span className="job-meta">
-								📅 Applied{" "}
+								Applied{" "}
 								{new Date(job.appliedDate).toLocaleDateString("en-IN", {
 									day: "numeric",
 									month: "short",
@@ -40,7 +40,7 @@ const JobCard = ({ job, onEdit, onDelete }) => {
 						)}
 						{job.followUpDate && (
 							<span className="job-meta">
-								🔔 Follow-up{" "}
+								Follow-up{" "}
 								{new Date(job.followUpDate).toLocaleDateString("en-IN", {
 									day: "numeric",
 									month: "short",
@@ -54,13 +54,13 @@ const JobCard = ({ job, onEdit, onDelete }) => {
 								target="_blank"
 								rel="noopener noreferrer"
 								className="job-card-link-title">
-								{job.company} 🔗
+								{job.company}
 							</a>
 						) : (
 							<span className="job-card-static-title">{job.company}</span>
 						)}
 					</div>
-					{job.notes && <div className="job-notes">💬 {job.notes}</div>}
+					{job.notes && <div className="job-notes"> {job.notes}</div>}
 				</div>
 				<div className="job-actions ms-3">
 					<button className="btn btn-edit" onClick={() => onEdit(job)}>

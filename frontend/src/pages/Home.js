@@ -209,56 +209,64 @@ const Home = ({ setJobCount }) => {
 	});
 
 	const statData = [
-		{ label: "Applied", icon: "📨", color: "blue" },
-		{ label: "Interview", icon: "🎤", color: "yellow" },
-		{ label: "Offer", icon: "🎉", color: "green" },
-		{ label: "Rejected", icon: "❌", color: "red" },
+		{ label: "Applied", color: "blue" },
+		{ label: "Interview", color: "yellow" },
+		{ label: "Offer", color: "green" },
+		{ label: "Rejected", color: "red" },
 	];
 
 	const kanbanColumns = ["Applied", "Interview", "Offer", "Rejected"];
 
 	return (
-		// Added global custom theme variable configuration hook down to components wrapper
-		<div className="page-wrapper" style={{ backgroundColor: "#dfe7fd" }}>
-			{/* Header */}
+		<div className="page-wrapper">
 			<div className="dashboard-header">
 				<div>
-					<h4>Hey {user?.name || "there"}! 👋</h4>
-					<p>
+					<h3 style={{ color: "#ffff" }}>Hey, {user?.name || "there"}!</h3>
+					<p style={{ color: "white" }}>
 						{jobs.length === 0
-							? "Start adding your job applications below"
-							: `You have ${jobs.length} application${jobs.length > 1 ? "s" : ""} tracked`}
+							? "Kindly start adding your job applications below."
+							: `You have ${jobs.length} application${jobs.length > 1 ? "s" : ""} tracked.`}
 					</p>
 				</div>
 				<div className="d-flex gap-2 align-items-center flex-wrap">
-					{/* View Switcher Toggle */}
 					<div className="view-switcher-pill">
 						<button
 							className={`btn btn-toggle ${viewMode === "list" ? "active" : ""}`}
-							onClick={() => setViewMode("list")}>
-							📋 List
+							onClick={() => setViewMode("list")}
+							style={{
+								fontSize: "1rem",
+								fontFamily: "Arial",
+							}}>
+							List
 						</button>
 						<button
 							className={`btn btn-toggle ${viewMode === "kanban" ? "active" : ""}`}
-							onClick={() => setViewMode("kanban")}>
-							📊 Kanban
+							onClick={() => setViewMode("kanban")}
+							style={{
+								fontSize: "1rem",
+								fontFamily: "Arial",
+							}}>
+							Kanban
 						</button>
 					</div>
 
-					{/* Export Action Dropdown Button */}
 					<Dropdown>
 						<Dropdown.Toggle
 							variant="light"
 							id="dropdown-export"
 							className="btn-export">
-							Double check 📤 Export
+							Export
 						</Dropdown.Toggle>
 						<Dropdown.Menu>
-							<Dropdown.Item onClick={exportToCSV}>
-								💾 Save as Spreadsheet (.CSV)
+							<Dropdown.Item
+								onClick={exportToCSV}
+								style={{ fontSize: "1.5rem" }}>
+								Save as Spreadsheet (.CSV)
 							</Dropdown.Item>
-							<Dropdown.Item onClick={exportToPDF}>
-								📄 Print Report (.PDF)
+							<Dropdown.Item
+								onClick={exportToPDF}
+								style={{ fontSize: "1.5rem" }}>
+								Print Report (.PDF)
 							</Dropdown.Item>
 						</Dropdown.Menu>
 					</Dropdown>
@@ -274,17 +282,19 @@ const Home = ({ setJobCount }) => {
 				</div>
 			</div>
 
-			{/* Notification Banner */}
 			{jobsDueToday.length > 0 && (
 				<div className="action-required-alert mb-4 shadow-sm">
 					<div className="d-flex align-items-center mb-2">
-						<span style={{ fontSize: "24px", marginRight: "12px" }}>📅</span>
-						<h5 className="mb-0 alert-heading">
-							Action Required: You have {jobsDueToday.length} Follow-Up
-							{jobsDueToday.length > 1 ? "s" : ""} Scheduled for Today!
-						</h5>
+						<h4
+							className="mb-0 alert-heading"
+							style={{ fontFamily: "Times New Roman" }}>
+							Action Required: You have {jobsDueToday.length} follow-up
+							{jobsDueToday.length > 1 ? "s" : ""} scheduled for today!
+						</h4>
 					</div>
-					<p className="alert-subtext mb-3">
+					<p
+						className="alert-subtext mb-3"
+						style={{ fontWeight: "bold", fontSize: "1rem" }}>
 						Reach out to recruiters, verify application portals, or update
 						interview schedules.
 					</p>
@@ -293,21 +303,46 @@ const Home = ({ setJobCount }) => {
 							<div key={job._id} className="col-12 col-md-6 col-lg-4">
 								<div className="due-job-badge-card d-flex justify-content-between align-items-center">
 									<div>
-										{/* Direct click-to-go integrated via conditional anchor tag wrapper */}
 										{job.jobLink ? (
 											<a
 												href={job.jobLink}
 												target="_blank"
 												rel="noopener noreferrer"
-												className="due-card-link-title">
-												{job.company} 🔗
+												className="due-card-link-title"
+												style={{ fontSize: "1.3rem" }}>
+												{job.company}
 											</a>
 										) : (
-											<div className="due-card-static-title">{job.company}</div>
+											<div
+												className="due-card-static-title"
+												style={{
+													fontSize: "1.3rem",
+													fontWeight: "bold",
+													fontFamily: "Times New Roman",
+													color: "black",
+												}}>
+												{job.company}
+											</div>
 										)}
-										<div className="due-card-subtitle">{job.role}</div>
+										<div
+											className="due-card-subtitle"
+											style={{
+												fontSize: "1rem",
+												fontWeight: "normal",
+												fontFamily: "Times New Roman",
+												color: "black",
+											}}>
+											{job.role}
+										</div>
 									</div>
-									<span className="badge status-pill-indicator">
+									<span
+										className="badge status-pill-indicator"
+										style={{
+											fontSize: "1rem",
+											fontWeight: "normal",
+											fontFamily: "Times New Roman",
+											color: "black",
+										}}>
 										{job.status}
 									</span>
 								</div>
@@ -317,28 +352,31 @@ const Home = ({ setJobCount }) => {
 				</div>
 			)}
 
-			{/* Stat Cards */}
 			<Row className="mb-4 g-3">
 				{statData.map((s) => (
 					<Col key={s.label} xs={6} md={3}>
 						<div className={`stat-card border-card-${s.color}`}>
-							<div className={`stat-icon ${s.color}`}>{s.icon}</div>
-							<div className="stat-info">
-								<h3>{jobs.filter((j) => j.status === s.label).length}</h3>
-								<p>{s.label}</p>
+							<div className="stat-info align-center">
+								<h3 style={{ fontSize: "2rem" }}>
+									{jobs.filter((j) => j.status === s.label).length}
+								</h3>
+								<p style={{ fontWeight: "bold" }}>{s.label}</p>
 							</div>
 						</div>
 					</Col>
 				))}
 			</Row>
 
-			{/* Main Application Body Container */}
 			{jobs.length > 0 ? (
 				viewMode === "list" ? (
 					<Row className="g-4">
 						<Col lg={4} md={12}>
 							<div className="chart-card shadow-sm">
-								<p className="section-title">Breakdown Matrix</p>
+								<p
+									className="section-title"
+									style={{ fontFamily: "Times New Roman", fontSize: "2rem" }}>
+									Breakdown Matrix
+								</p>
 								<StatsChart jobs={jobs} />
 								<div className="mt-3">
 									{jobs.filter(
@@ -348,8 +386,13 @@ const Home = ({ setJobCount }) => {
 											j.status !== "Offer" &&
 											j.status !== "Rejected",
 									).length > 0 && (
-										<div className="overdue-warning-pill">
-											⚠️{" "}
+										<div
+											className="overdue-warning-pill"
+											style={{
+												fontSize: "1.3rem",
+												color: "#6c757d",
+												fontWeight: "bold",
+											}}>
 											{
 												jobs.filter(
 													(j) =>
@@ -358,8 +401,8 @@ const Home = ({ setJobCount }) => {
 														j.status !== "Offer" &&
 														j.status !== "Rejected",
 												).length
-											}{" "}
-											follow-up(s) overdue
+											}
+											&ensp;follow-up(s) overdue
 										</div>
 									)}
 								</div>
@@ -373,7 +416,8 @@ const Home = ({ setJobCount }) => {
 											<button
 												key={s}
 												className={`btn filter-pill ${filter === s ? "active" : ""}`}
-												onClick={() => setFilter(s)}>
+												onClick={() => setFilter(s)}
+												style={{ fontSize: "1rem" }}>
 												{s}{" "}
 												{s !== "All" &&
 													`(${jobs.filter((j) => j.status === s).length})`}
@@ -384,14 +428,16 @@ const Home = ({ setJobCount }) => {
 							</div>
 							<Form.Control
 								className="search-input mb-3 shadow-sm"
-								placeholder="🔍   Search by company or role..."
+								placeholder="Search by company or role...."
 								value={search}
 								onChange={(e) => setSearch(e.target.value)}
+								style={{ fontSize: "1rem" }}
 							/>
 							{filtered.length === 0 ? (
-								<div className="empty-state shadow-sm">
-									<div className="empty-icon">🔍</div>
-									<h5>No matching configurations</h5>
+								<div
+									className="empty-state shadow-sm"
+									style={{ border: "1px solid #94a3b8" }}>
+									<h4>No matching configurations</h4>
 									<p>Try resetting filters or clear search data input values</p>
 								</div>
 							) : (
@@ -407,7 +453,6 @@ const Home = ({ setJobCount }) => {
 						</Col>
 					</Row>
 				) : (
-					/* Kanban Board Grid Engine */
 					<DragDropContext onDragEnd={handleDragEnd}>
 						<Row className="kanban-container g-3 match-height">
 							{kanbanColumns.map((colName) => {

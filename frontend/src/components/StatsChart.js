@@ -1,34 +1,3 @@
-// import React from "react";
-// import { Doughnut } from "react-chartjs-2";
-// import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-
-// ChartJS.register(ArcElement, Tooltip, Legend);
-
-// const StatsChart = ({ jobs }) => {
-// 	const data = {
-// 		labels: ["Applied", "Interview", "Offer", "Rejected"],
-// 		datasets: [
-// 			{
-// 				data: [
-// 					jobs.filter((j) => j.status === "Applied").length,
-// 					jobs.filter((j) => j.status === "Interview").length,
-// 					jobs.filter((j) => j.status === "Offer").length,
-// 					jobs.filter((j) => j.status === "Rejected").length,
-// 				],
-// 				backgroundColor: ["#0d6efd", "#ffc107", "#198754", "#dc3545"],
-// 				borderWidth: 1,
-// 			},
-// 		],
-// 	};
-
-// 	return (
-// 		<div style={{ maxWidth: "260px", margin: "0 auto" }}>
-// 			<Doughnut data={data} />
-// 		</div>
-// 	);
-// };
-
-// export default StatsChart;
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
@@ -42,7 +11,6 @@ const StatsChart = ({ jobs }) => {
 	const offerCount = jobs.filter((j) => j.status === "Offer").length;
 	const rejectedCount = jobs.filter((j) => j.status === "Rejected").length;
 
-	// Real-time calculation formulas
 	const interviewConversionRate =
 		totalJobs > 0
 			? Math.round(
@@ -62,6 +30,7 @@ const StatsChart = ({ jobs }) => {
 				data: [appliedCount, interviewCount, offerCount, rejectedCount],
 				backgroundColor: ["#0d6efd", "#ffc107", "#198754", "#dc3545"],
 				borderWidth: 1,
+				borderRadius: "100%",
 			},
 		],
 	};
@@ -70,12 +39,11 @@ const StatsChart = ({ jobs }) => {
 		<div style={{ maxWidth: "260px", margin: "0 auto" }}>
 			<Doughnut data={data} />
 
-			{/* Real-time Metric Analytics Breakdown Grid */}
 			<div className="analytics-metrics-panel mt-4 pt-3 border-top">
 				<div
 					className="d-flex justify-content-between align-items-center mb-2"
 					style={{ fontSize: "0.85rem" }}>
-					<span className="text-muted">📋 Interview Rate:</span>
+					<span className="text-muted"> Interview Rate:</span>
 					<span
 						className="fw-bold text-dark"
 						style={{
@@ -90,7 +58,7 @@ const StatsChart = ({ jobs }) => {
 				<div
 					className="d-flex justify-content-between align-items-center"
 					style={{ fontSize: "0.85rem" }}>
-					<span className="text-muted">🏆 Offer Win Rate:</span>
+					<span className="text-muted"> Offer Win Rate:</span>
 					<span
 						className="fw-bold"
 						style={{

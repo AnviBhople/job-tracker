@@ -8,17 +8,13 @@
 
 body {
 	font-family: "Inter", sans-serif;
-	/* background-color: red; */
-	background-color: #caf0f8;
 	color: #1a1d23;
 	line-height: 1.6;
 }
 
-/* ── Navbar ── */
 .jt-navbar {
-	/* background: #ffffff !important; */
-	background-color: #cddafd;
-
+	background-color: #03045e;
+	color: #ffff;
 	border-bottom: 1px solid #e8eaed;
 	padding: 0.75rem 0;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
@@ -27,12 +23,10 @@ body {
 .jt-navbar .navbar-brand {
 	font-size: 1.2rem;
 	font-weight: 700;
-	color: #1a1d23 !important;
 	letter-spacing: -0.3px;
 }
 
 .jt-navbar .nav-link {
-	color: #6b7280 !important;
 	font-size: 0.875rem;
 	font-weight: 500;
 	padding: 0.4rem 0.75rem !important;
@@ -41,14 +35,15 @@ body {
 }
 
 .jt-navbar .nav-link:hover {
-	color: #1a1d23 !important;
 	background: #f3f4f6;
 }
 
 .jt-navbar .user-greeting {
-	font-size: 0.875rem;
-	font-weight: 500;
-	color: #374151;
+	font-size: 2rem;
+	color: #fff7ed;
+	font-family: "Times New Roman", Times, serif;
+	font-weight: bold;
+	margin-right: 10rem;
 }
 
 .jt-navbar .stat-pill {
@@ -57,43 +52,42 @@ body {
 	padding: 4px 12px;
 	font-size: 0.78rem;
 	font-weight: 600;
-	color: #374151;
 	display: inline-flex;
 	align-items: center;
 	gap: 5px;
 }
 
 .jt-navbar .stat-pill span {
-	color: #6366f1;
+	color: #ffff;
 }
 
 .btn-logout {
-	font-size: 0.8rem;
-	font-weight: 500;
-	color: #6b7280 !important;
-	border: 1px solid #e5e7eb !important;
-	border-radius: 6px !important;
+	font-size: 1.3rem;
+	color: #ffff;
+	border-radius: 10px !important;
 	padding: 5px 14px !important;
-	background: transparent !important;
+	background: #ef233c;
 	transition: all 0.15s ease;
+	font-weight: bold;
+	font-family: "Times New Roman", Times, serif;
 }
 
 .btn-logout:hover {
-	background: #f9fafb !important;
-	color: #1a1d23 !important;
-	border-color: #d1d5db !important;
+	background: #9b2226 !important;
+	font-size: 1.3rem;
+	color: "#ffff";
+	font-family: "Times New Roman", Times, serif;
 }
 
-/* ── Page Layout ── */
 .page-wrapper {
 	max-width: 1100px;
 	margin: 0 auto;
+
 	padding: 2rem 1.5rem;
 }
 
-/* ── Dashboard Header ── */
 .dashboard-header {
-	background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+	background-color: #03045e;
 	border-radius: 16px;
 	padding: 2rem 2.5rem;
 	margin-bottom: 2rem;
@@ -101,13 +95,15 @@ body {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	font-family: "Times New Roman", Times, serif;
 }
 
-.dashboard-header h4 {
-	font-size: 1.5rem;
+.dashboard-header h3 {
+	font-size: 2rem;
 	font-weight: 700;
 	margin-bottom: 4px;
 	letter-spacing: -0.3px;
+	color: white;
 }
 
 .dashboard-header p {
@@ -116,25 +112,6 @@ body {
 	margin: 0;
 }
 
-.btn-add {
-	background: white !important;
-	color: #6366f1 !important;
-	border: none !important;
-	font-weight: 600 !important;
-	font-size: 0.875rem !important;
-	padding: 10px 20px !important;
-	border-radius: 10px !important;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-	transition: all 0.2s ease !important;
-	white-space: nowrap;
-}
-
-.btn-add:hover {
-	transform: translateY(-1px);
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18) !important;
-}
-
-/* ── Stat Cards ── */
 .stat-card {
 	background: white;
 	border-radius: 12px;
@@ -191,7 +168,6 @@ body {
 	letter-spacing: 0.04em;
 }
 
-/* ── Section Title ── */
 .section-title {
 	font-size: 1rem;
 	font-weight: 600;
@@ -201,7 +177,6 @@ body {
 	border-bottom: 1px solid #f3f4f6;
 }
 
-/* ── Filter Bar ── */
 .filter-bar {
 	display: flex;
 	gap: 6px;
@@ -247,11 +222,10 @@ body {
 	box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1) !important;
 }
 
-/* ── Job Card ── */
 .job-card {
-	background: white;
+	background: linear-gradient(135deg, #eff6ff, #dbeafe) !important;
+	border: 1px solid #bfdbfe !important;
 	border-radius: 12px;
-	border: 1px solid #e8eaed;
 	padding: 1.25rem 1.5rem;
 	margin-bottom: 0.75rem;
 	transition: all 0.2s ease;
@@ -262,14 +236,6 @@ body {
 	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 	border-color: #d1d5db;
 	transform: translateY(-1px);
-}
-
-.job-card.overdue {
-	border-left: 3px solid #ef4444;
-}
-
-.job-card.priority-high {
-	border-left: 3px solid #f59e0b;
 }
 
 .job-company {
@@ -353,7 +319,6 @@ body {
 	background: #fef2f2 !important;
 }
 
-/* ── Status Badges ── */
 .status-badge {
 	font-size: 0.72rem;
 	font-weight: 600;
@@ -400,7 +365,6 @@ body {
 	color: #16a34a;
 }
 
-/* ── Chart Section ── */
 .chart-card {
 	background: white;
 	border-radius: 12px;
@@ -409,7 +373,6 @@ body {
 	height: 100%;
 }
 
-/* ── Empty State ── */
 .empty-state {
 	text-align: center;
 	padding: 4rem 2rem;
@@ -434,7 +397,6 @@ body {
 	margin-bottom: 1.5rem;
 }
 
-/* ── Auth Pages ── */
 .auth-wrapper {
 	min-height: calc(100vh - 70px);
 	display: flex;
@@ -519,7 +481,6 @@ body {
 	text-decoration: underline;
 }
 
-/* ── Modal ── */
 .modal-content {
 	border-radius: 16px !important;
 	border: none !important;
@@ -586,7 +547,6 @@ body {
 	background: #4f46e5 !important;
 }
 
-/* ── Overdue banner ── */
 .overdue-badge {
 	font-size: 0.7rem;
 	font-weight: 600;
@@ -598,7 +558,6 @@ body {
 	letter-spacing: 0.04em;
 }
 
-/* ── Scrollbar ── */
 ::-webkit-scrollbar {
 	width: 5px;
 }
@@ -612,7 +571,6 @@ body {
 ::-webkit-scrollbar-thumb:hover {
 	background: #9ca3af;
 }
-/* View Switcher Layout Elements */
 .view-switcher-pill {
 	background: #f1f3f5;
 	padding: 4px;
@@ -621,21 +579,20 @@ body {
 }
 .btn-toggle {
 	border: none;
-	background: transparent;
+	background: #fff;
 	padding: 6px 16px;
 	font-size: 0.85rem;
 	font-weight: 500;
 	border-radius: 20px;
-	color: #495057;
+	color: #000;
 	transition: all 0.2s;
 }
 .btn-toggle.active {
-	background: #ffffff;
-	color: #4f46e5;
+	background: #03045e;
+	/* color: #fff; */
 	box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-/* Kanban System Board UI */
 .kanban-container {
 	align-items: stretch;
 }
@@ -668,21 +625,13 @@ body {
 .btn-export {
 	border: 1px solid #ced4da !important;
 	background: #ffffff !important;
-	color: #495057 !important;
-	font-size: 0.88rem !important;
-	font-weight: 500 !important;
+	color: balck;
+	font-size: 1.2rem;
 	padding: 8px 16px !important;
-	border-radius: 6px !important;
+	border-radius: 10px !important;
 	transition: all 0.2s ease;
 }
 
-.btn-export:hover {
-	background: #f8f9fa !important;
-	border-color: #adb5bd !important;
-}
-/* ==========================================================================
-   Premium Application Palette Engine & Typography Defaults
-   ========================================================================== */
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
 
 .page-wrapper {
@@ -694,7 +643,6 @@ body {
 		color 0.3s ease;
 }
 
-/* Color Token Mapping Strategy */
 .page-wrapper[data-theme="light"] {
 	--bg-primary: #f8fafc;
 	--bg-card: #ffffff;
@@ -709,63 +657,42 @@ body {
 
 .page-wrapper[data-theme="dark"] {
 	--bg-primary: #0f172a;
-	--bg-card: #1e293b;
+	--bg-card: #012a4a;
 	--text-main: #f8fafc;
 	--text-muted: #94a3b8;
 	--border-color: #334155;
 	--shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
 	--shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
 	--kanban-col-bg: #151f32;
+	--border: 1px solid white;
 }
 
-/* Background Application Override binding */
 body:has([data-theme="dark"]) {
-	background-color: #0f172a !important;
+	background-color: #00509d !important;
 }
 body:has([data-theme="light"]) {
 	background-color: #f8fafc !important;
 }
-
 .page-wrapper {
 	background-color: var(--bg-primary);
 	color: var(--text-main);
 }
 
-/* ==========================================================================
-   Header Component Elements
-   ========================================================================== */
-.dashboard-header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 2rem;
-	border-bottom: 1px solid var(--border-color);
-	padding-bottom: 1.5rem;
-}
-
-.dashboard-header h4 {
-	font-weight: 700;
-	color: var(--text-main);
-	margin-bottom: 0.25rem;
-}
-
-.dashboard-header p {
-	color: var(--text-muted);
-	margin-bottom: 0;
-}
-
-/* Buttons Styling */
 .btn-theme-toggle {
-	background-color: var(--bg-card);
-	border: 1px solid var(--border-color);
-	color: var(--text-main);
-	font-weight: 500;
+	background-color: #ffff;
+	border: 2px solid #f8f9fa;
+	color: #1a1d23;
+	font-weight: bold;
 	padding: 0.5rem 1rem;
+	font-size: 1.2rem;
 	border-radius: 8px;
 	transition: all 0.2s ease;
+	font-family: "Times New Roman", Times, serif;
+	margin-left: 2rem;
 }
 .btn-theme-toggle:hover {
-	background-color: var(--border-color);
+	background-color: #002855;
+	border: 2px solid white;
 }
 
 .view-switcher-pill {
@@ -776,41 +703,19 @@ body:has([data-theme="light"]) {
 	display: inline-flex;
 }
 
-.btn-toggle {
-	border: none;
-	background: transparent;
-	color: var(--text-muted);
-	padding: 0.4rem 1rem;
-	font-size: 0.9rem;
-	font-weight: 500;
-	border-radius: 8px;
-	transition: all 0.2s ease;
-}
-
-.btn-toggle.active {
-	background-color: #4f46e5 !important;
-	color: #ffffff !important;
-	box-shadow: var(--shadow-sm);
-}
-
 .btn-add {
-	background-color: #4f46e5;
-	color: white;
-	border: none;
-	font-weight: 600;
+	background-color: #fff;
+	color: black;
+	font-size: 1.2rem;
 	padding: 0.5rem 1.25rem;
 	border-radius: 8px;
-	box-shadow: 0 4px 10px rgba(79, 70, 229, 0.25);
-	transition: all 0.2s ease;
 }
 .btn-add:hover {
-	background-color: #4338ca;
-	transform: translateY(-1px);
+	background-color: #012a4a;
+	border: 1px solid white;
+	font-weight: bold;
 }
 
-/* ==========================================================================
-   Data Presentation Cards & Components
-   ========================================================================== */
 .stat-card {
 	background-color: var(--bg-card);
 	border: 1px solid var(--border-color);
@@ -855,7 +760,8 @@ body:has([data-theme="light"]) {
 .stat-info h3 {
 	margin: 0;
 	font-weight: 700;
-	color: var(--text-main);
+	color: black;
+	font-size: 2rem;
 	font-size: 1.5rem;
 }
 .stat-info p {
@@ -866,11 +772,28 @@ body:has([data-theme="light"]) {
 	letter-spacing: 0.05em;
 	font-weight: 600;
 }
+.border-card-blue {
+	background: linear-gradient(135deg, #eff6ff, #dbeafe) !important;
+	border: 1px solid #bfdbfe !important;
+}
 
-/* Action Alert banner integration styling blueprint */
+.border-card-yellow {
+	background: linear-gradient(135deg, #fffbeb, #fef3c7) !important;
+	border: 1px solid #fde68a !important;
+}
+
+.border-card-green {
+	background: linear-gradient(135deg, #f0fdf4, #dcfce7) !important;
+	border: 1px solid #bbf7d0 !important;
+}
+
+.border-card-red {
+	background: linear-gradient(135deg, #fef2f2, #fee2e2) !important;
+	border: 1px solid #fecaca !important;
+}
+
 .action-required-alert {
 	background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
-	border-left: 6px solid #4f46e5;
 	border-radius: 12px;
 	padding: 1.5rem;
 }
@@ -906,7 +829,6 @@ body:has([data-theme="light"]) {
 	border-color: rgba(99, 102, 241, 0.25);
 }
 
-/* Link-to-go decoration engine */
 .due-card-link-title {
 	font-weight: 600;
 	color: #4f46e5;
@@ -929,9 +851,6 @@ body:has([data-theme="light"]) {
 	font-size: 0.8rem;
 }
 
-/* ==========================================================================
-   Kanban Visual Presentation Interface Structural Overhaul
-   ========================================================================== */
 .kanban-column-wrapper {
 	background-color: var(--kanban-col-bg);
 	border-radius: 14px;
@@ -973,7 +892,6 @@ body:has([data-theme="light"]) {
 	box-shadow: var(--shadow-md);
 }
 
-/* Filter controls and layout structures */
 .filter-pills-container {
 	display: flex;
 	gap: 0.5rem;
@@ -995,14 +913,14 @@ body:has([data-theme="light"]) {
 }
 
 .search-input {
-	background-color: var(--bg-card) !important;
-	border: 1px solid var(--border-color) !important;
-	color: var(--text-main) !important;
+	background-color: #ffff !important;
+	border: 1px solid #94a3b8 !important;
+	color: black !important;
 	border-radius: 10px;
 	padding: 0.6rem 1rem;
 }
 .search-input::placeholder {
-	color: var(--text-muted);
+	color: grey;
 }
 
 .empty-state {
