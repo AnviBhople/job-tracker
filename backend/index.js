@@ -11,17 +11,14 @@ app.use(express.json());
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/jobs", require("./routes/jobs"));
 
-const PORT = process.env.PORT || 5000;
-
 mongoose
 	.connect(process.env.MONGO_URI)
 	.then(() => {
 		console.log("MongoDB connected successfully");
 
-		app.listen(PORT, () => {
-			console.log(
-				`System Server initialized successfully running on port ${PORT}`,
-			);
+		const PORT = process.env.PORT || 5000;
+		app.listen(PORT, "0.0.0.0", () => {
+			console.log(`Server running on port ${PORT}`);
 		});
 	})
 	.catch((err) => {
