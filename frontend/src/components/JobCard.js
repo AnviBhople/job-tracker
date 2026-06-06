@@ -10,8 +10,8 @@ const JobCard = ({ job, onEdit, onDelete }) => {
 	return (
 		<div
 			className={`job-card ${isOverdue ? "overdue" : ""} ${job.priority === "High" ? "priority-high" : ""}`}>
-			<div className="d-flex justify-content-between align-items-start">
-				<div style={{ flex: 1 }}>
+			<div className="d-flex flex-column flex-sm-row justify-content-between align-items-start gap-2">
+				<div style={{ flex: 1, minWidth: 0 }}>
 					<div className="d-flex align-items-center gap-2 mb-1 flex-wrap">
 						<span className="job-company">{job.company}</span>
 						<span className={`status-badge status-${job.status}`}>
@@ -23,11 +23,15 @@ const JobCard = ({ job, onEdit, onDelete }) => {
 							</span>
 						)}
 						{isOverdue && (
-							<span className="overdue-badge">Follow-up overdue</span>
+							<span
+								className="overdue-badge"
+								style={{ textTransform: "capitalize" }}>
+								Follow-up overdue
+							</span>
 						)}
 					</div>
 					<p className="job-role">{job.role}</p>
-					<div className="d-flex flex-wrap gap-3">
+					<div className="d-flex flex-wrap gap-2">
 						{job.appliedDate && (
 							<span className="job-meta">
 								Applied{" "}
@@ -48,21 +52,19 @@ const JobCard = ({ job, onEdit, onDelete }) => {
 								})}
 							</span>
 						)}
-						{job.jobLink ? (
+						{job.jobLink && (
 							<a
 								href={job.jobLink}
 								target="_blank"
 								rel="noopener noreferrer"
-								className="job-card-link-title">
-								{job.company}
+								className="job-link">
+								View posting
 							</a>
-						) : (
-							<span className="job-card-static-title">{job.company}</span>
 						)}
 					</div>
-					{job.notes && <div className="job-notes"> {job.notes}</div>}
+					{job.notes && <div className="job-notes">{job.notes}</div>}
 				</div>
-				<div className="job-actions ms-3">
+				<div className="d-flex flex-row flex-sm-column gap-2 mt-1 mt-sm-0">
 					<button className="btn btn-edit" onClick={() => onEdit(job)}>
 						Edit
 					</button>

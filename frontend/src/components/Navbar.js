@@ -21,37 +21,47 @@ const Navbar = ({ jobCount }) => {
 							fontFamily: "ui-monospace",
 							fontWeight: "bold",
 							color: "white",
+							fontSize: "2rem",
+							margin: 0,
 						}}>
 						JobTracker
 					</h1>
 				</BsNavbar.Brand>
 
+				<BsNavbar.Toggle
+					aria-controls="responsive-navbar-nav"
+					style={{ borderColor: "rgba(255,255,255,0.3)" }}>
+					<span style={{ color: "white", fontSize: "1.2rem" }}>☰</span>
+				</BsNavbar.Toggle>
+
 				<BsNavbar.Collapse
 					id="responsive-navbar-nav"
-					className="justify-content-end order-lg-1">
+					className="justify-content-end">
 					{user ? (
-						<Nav className="align-items-center gap-3 mt-3 mt-lg-0">
+						<Nav className="align-items-lg-center gap-2 py-2 py-lg-0">
 							{jobCount > 0 && (
 								<span
-									className="stat-pill text-black text-bold"
-									style={{ fontSize: "1rem" }}>
-									<strong style={{ fontSize: "1.5rem" }}>{jobCount}</strong>
+									className="stat-pill text-black"
+									style={{ fontSize: "0.9rem" }}>
+									<strong style={{ fontSize: "1rem" }}>{jobCount}</strong>
 									&ensp;application(s)
 								</span>
 							)}
-							<span className="user-greeting">Hi, {user.name}!</span>
+							<span className="user-greeting d-block py-1">
+								Hi, {user.name}!
+							</span>
 							<button
-								className="btn btn-logout text-white"
+								className="btn btn-logout text-white mt-1 mt-lg-0"
 								onClick={handleLogout}>
 								Sign out
 							</button>
 						</Nav>
 					) : (
-						<Nav className="gap-1 mt-2 mt-lg-0 text-white">
-							<Nav.Link as={Link} to="/login">
+						<Nav className="d-flex gap-4 py-2 py-lg-0">
+							<Nav.Link as={Link} to="/login" className="text-white">
 								Login
 							</Nav.Link>
-							<Nav.Link as={Link} to="/register">
+							<Nav.Link as={Link} to="/register" className="text-white">
 								Register
 							</Nav.Link>
 						</Nav>

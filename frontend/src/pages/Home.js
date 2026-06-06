@@ -220,7 +220,7 @@ const Home = ({ setJobCount }) => {
 	return (
 		<div className="page-wrapper">
 			<div className="dashboard-header">
-				<div>
+				<div className="mb-3 mb-md-0">
 					<h3 style={{ color: "#ffff" }}>Hey, {user?.name || "there"}!</h3>
 					<p style={{ color: "white" }}>
 						{jobs.length === 0
@@ -228,28 +228,23 @@ const Home = ({ setJobCount }) => {
 							: `You have ${jobs.length} application${jobs.length > 1 ? "s" : ""} tracked.`}
 					</p>
 				</div>
-				<div className="d-flex gap-2 align-items-center flex-wrap">
-					<div className="view-switcher-pill">
+				<div className="d-flex gap-2 align-items-center flex-wrap justify-content-start justify-content-md-end">
+					<div
+						className="view-switcher-pill"
+						style={{ backgroundColor: "white" }}>
 						<button
-							className={`btn btn-toggle ${viewMode === "list" ? "active" : ""}`}
+							className={`btn btn-toggle text-black ${viewMode === "list" ? "active" : ""}`}
 							onClick={() => setViewMode("list")}
-							style={{
-								fontSize: "1rem",
-								fontFamily: "Arial",
-							}}>
+							style={{ fontSize: "0.9rem" }}>
 							List
 						</button>
 						<button
-							className={`btn btn-toggle ${viewMode === "kanban" ? "active" : ""}`}
+							className={`btn btn-toggle text-black ${viewMode === "kanban" ? "active" : ""}`}
 							onClick={() => setViewMode("kanban")}
-							style={{
-								fontSize: "1rem",
-								fontFamily: "Arial",
-							}}>
+							style={{ fontSize: "0.9rem" }}>
 							Kanban
 						</button>
 					</div>
-
 					<Dropdown>
 						<Dropdown.Toggle
 							variant="light"
@@ -258,30 +253,24 @@ const Home = ({ setJobCount }) => {
 							Export
 						</Dropdown.Toggle>
 						<Dropdown.Menu>
-							<Dropdown.Item
-								onClick={exportToCSV}
-								style={{ fontSize: "1.5rem" }}>
+							<Dropdown.Item onClick={exportToCSV} style={{ fontSize: "1rem" }}>
 								Save as Spreadsheet (.CSV)
 							</Dropdown.Item>
-							<Dropdown.Item
-								onClick={exportToPDF}
-								style={{ fontSize: "1.5rem" }}>
+							<Dropdown.Item onClick={exportToPDF} style={{ fontSize: "1rem" }}>
 								Print Report (.PDF)
 							</Dropdown.Item>
 						</Dropdown.Menu>
 					</Dropdown>
-
 					<button
 						className="btn btn-add"
 						onClick={() => {
 							setEditData(null);
 							setShowForm(true);
 						}}>
-						+ Add Application
+						+ Add
 					</button>
 				</div>
 			</div>
-
 			{jobsDueToday.length > 0 && (
 				<div className="action-required-alert mb-4 shadow-sm">
 					<div className="d-flex align-items-center mb-2">
@@ -417,7 +406,7 @@ const Home = ({ setJobCount }) => {
 												key={s}
 												className={`btn filter-pill ${filter === s ? "active" : ""}`}
 												onClick={() => setFilter(s)}
-												style={{ fontSize: "1rem" }}>
+												style={{ fontSize: "1rem", border: "1px solid grey" }}>
 												{s}{" "}
 												{s !== "All" &&
 													`(${jobs.filter((j) => j.status === s).length})`}
@@ -519,10 +508,15 @@ const Home = ({ setJobCount }) => {
 					<h5>No applications yet</h5>
 					<p>
 						Click "+ Add Application" to start tracking your placements
-						dashboard
+						dashboard.
 					</p>
 					<button
 						className="btn btn-add mt-2"
+						style={{
+							color: "white",
+							backgroundColor: "#00b4d8",
+							fontWeight: "bold",
+						}}
 						onClick={() => setShowForm(true)}>
 						+ Add your first application
 					</button>

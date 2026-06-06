@@ -30,9 +30,9 @@ const Register = () => {
 	};
 
 	return (
-		<div className="auth-wrapper">
-			<div className="auth-card">
-				<h4>Create your account</h4>
+		<div className="auth-wrapper px-3">
+			<div className="auth-card w-100" style={{ maxWidth: "420px" }}>
+				<h3 className="fs-3">Create your account</h3>
 				<p className="auth-sub">Start tracking your job applications today</p>
 				{error && (
 					<Alert

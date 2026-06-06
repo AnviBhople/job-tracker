@@ -30,10 +30,10 @@ const Login = () => {
 	};
 
 	return (
-		<div className="auth-wrapper">
-			<div className="auth-card">
-				<h4>Welcome back</h4>
-				<p className="auth-sub">Sign in to your JobTrackr account</p>
+		<div className="auth-wrapper px-3">
+			<div className="auth-card w-100" style={{ maxWidth: "420px" }}>
+				<h2 className="fs-3">Welcome back</h2>
+				<p className="auth-sub">Sign in to your JobTracker account</p>
 				{error && (
 					<Alert
 						variant="danger"
@@ -43,7 +43,7 @@ const Login = () => {
 				)}
 				<Form onSubmit={handleSubmit}>
 					<Form.Group className="mb-3">
-						<Form.Label>Email</Form.Label>
+						<Form.Label style={{ fontSize: "1rem" }}>Email</Form.Label>
 						<Form.Control
 							name="email"
 							type="email"
@@ -54,7 +54,7 @@ const Login = () => {
 						/>
 					</Form.Group>
 					<Form.Group className="mb-4">
-						<Form.Label>Password</Form.Label>
+						<Form.Label style={{ fontSize: "1rem" }}>Password</Form.Label>
 						<Form.Control
 							name="password"
 							type="password"
